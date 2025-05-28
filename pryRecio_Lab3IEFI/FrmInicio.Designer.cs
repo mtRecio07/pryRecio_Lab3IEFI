@@ -36,28 +36,31 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Nirmala Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(612, 192);
+            this.txtUsuario.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(458, 159);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(423, 35);
+            this.txtUsuario.Size = new System.Drawing.Size(318, 25);
             this.txtUsuario.TabIndex = 1;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Font = new System.Drawing.Font("Nirmala Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(612, 265);
+            this.txtContraseña.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(458, 218);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(423, 35);
+            this.txtContraseña.Size = new System.Drawing.Size(318, 25);
             this.txtContraseña.TabIndex = 2;
             // 
             // linkLblRegistrar
             // 
             this.linkLblRegistrar.AutoSize = true;
             this.linkLblRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLblRegistrar.Font = new System.Drawing.Font("Nirmala Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLblRegistrar.Location = new System.Drawing.Point(608, 409);
+            this.linkLblRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblRegistrar.Location = new System.Drawing.Point(455, 333);
+            this.linkLblRegistrar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLblRegistrar.Name = "linkLblRegistrar";
-            this.linkLblRegistrar.Size = new System.Drawing.Size(330, 23);
+            this.linkLblRegistrar.Size = new System.Drawing.Size(281, 17);
             this.linkLblRegistrar.TabIndex = 4;
             this.linkLblRegistrar.TabStop = true;
             this.linkLblRegistrar.Text = "¿Todavía no tienes una cuenta? Registrate";
@@ -70,9 +73,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(695, 319);
+            this.button1.Location = new System.Drawing.Point(522, 259);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(253, 60);
+            this.button1.Size = new System.Drawing.Size(190, 49);
             this.button1.TabIndex = 5;
             this.button1.Text = "Iniciar Sesión";
             this.button1.UseVisualStyleBackColor = false;
@@ -80,16 +84,17 @@
             // 
             // FrmInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::pryRecio_Lab3IEFI.Properties.Resources.Prototipo_de_Ordenador_Inicio_Sesión_Web_Ilustrado_Ordenado_Azul;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1096, 557);
+            this.ClientSize = new System.Drawing.Size(822, 453);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.linkLblRegistrar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInicio";
             this.Text = "Bienvenido";
             this.ResumeLayout(false);

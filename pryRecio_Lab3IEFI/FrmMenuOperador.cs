@@ -54,21 +54,25 @@ namespace pryRecio_Lab3IEFI
             DateTime fechaHoraFin = DateTime.Now;
             TimeSpan duracion = fechaHoraFin - fechaHoraInicio;
 
-            // Registrar en la base de datos
+            // Duración en segundos, que es el tipo esperado en la BD
+            int duracionEnSegundos = (int)duracion.TotalSeconds;
+
             ClsConexion objConexion = new ClsConexion();
             string query = "INSERT INTO Auditoria (IdUsuario, FechaHoraInicio, FechaHoraFin, Duracion) VALUES (?, ?, ?, ?)";
+            
+            objConexion.Abrir();
 
             using (OleDbCommand cmd = new OleDbCommand(query, objConexion.Conexion))
             {
                 cmd.Parameters.AddWithValue("?", idUsuario);
-                cmd.Parameters.AddWithValue("?", fechaHoraInicio);
-                cmd.Parameters.AddWithValue("?", fechaHoraFin);
-                string duracionFormateada = duracion.ToString(@"hh\:mm\:ss");
-                cmd.Parameters.AddWithValue("?", duracionFormateada);
-                objConexion.Abrir();
+                cmd.Parameters.AddWithValue("?", fechaHoraInicio.Date);
+                cmd.Parameters.AddWithValue("?", fechaHoraFin.Date);
+                cmd.Parameters.AddWithValue("?", duracionEnSegundos);
+
                 cmd.ExecuteNonQuery();
-                objConexion.Cerrar();
             }
+
+            objConexion.Cerrar();
 
             MessageBox.Show("Sesión cerrada correctamente.");
             FrmInicio inicio = new FrmInicio();
@@ -78,7 +82,9 @@ namespace pryRecio_Lab3IEFI
 
         private void FrmMenuOperador_Load(object sender, EventArgs e)
         {
+            fechaHoraInicio = DateTime.Now;
             timerSesion.Start();
         }
+
     }
 }

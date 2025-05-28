@@ -131,5 +131,15 @@ namespace pryRecio_Lab3IEFI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2025_05_28_at_10_29_30_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2025_05_28_at_10_29_30_AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

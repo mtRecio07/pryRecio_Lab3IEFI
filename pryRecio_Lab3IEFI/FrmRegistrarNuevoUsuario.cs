@@ -70,5 +70,13 @@ namespace pryRecio_Lab3IEFI
                 MessageBox.Show("Error al enviar el correo: " + ex.Message);
             }
         }
+
+        private void volverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInicio login = new FrmInicio();
+            login.Show();
+            this.Close();
+
+        }
     }
 }

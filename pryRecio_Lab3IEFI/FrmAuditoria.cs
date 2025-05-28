@@ -26,27 +26,29 @@ namespace pryRecio_Lab3IEFI
         {
             try
             {
-                BDConexion.Abrir();
+                using (ClsConexion BDConexion = new ClsConexion())
+                {
+                    BDConexion.Abrir();
 
-                string consulta = @"
-                    SELECT U.Usuario, A.FechaHoraInicio, A.FechaHoraFin, A.Duracion
-                    FROM Auditoria A
-                    INNER JOIN Usuario U ON A.IdUsuario = U.IdUsuario";
+                    string consulta = @"
+                SELECT U.Usuario, A.FechaHoraInicio, A.FechaHoraFin, A.Duracion
+                FROM Auditoria A
+                INNER JOIN Usuario U ON A.IdUsuario = U.IdUsuario";
 
-                OleDbDataAdapter adaptador = new OleDbDataAdapter(consulta, BDConexion.Conexion);
-                DataTable tabla = new DataTable();
-                adaptador.Fill(tabla);
+                    OleDbDataAdapter adaptador = new OleDbDataAdapter(consulta, BDConexion.Conexion);
+                    DataTable tabla = new DataTable();
+                    adaptador.Fill(tabla);
 
-                dgvAuditoria.DataSource = tabla;
+                    dgvAuditoria.DataSource = tabla;
+
+                    BDConexion.Cerrar();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar auditoría: " + ex.Message);
             }
-            finally
-            {
-                BDConexion.Cerrar();
-            }
+
         }
 
         private void volverToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,6 +56,12 @@ namespace pryRecio_Lab3IEFI
             FrmMenuAdmin fp = new FrmMenuAdmin();
             fp.Show();
             this.Hide();
+        }
+
+        private void FrmAuditoria_Load(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

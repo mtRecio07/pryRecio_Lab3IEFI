@@ -40,10 +40,17 @@ namespace pryRecio_Lab3IEFI
             string usuario = txtUsuario.Text.Trim();
             string contraseña = txtContraseña.Text.Trim();
 
+
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contraseña))
+            {
+                MessageBox.Show("Debe completar todos los campos.");
+                return;
+            }
+
             ClsConexion conexion = new ClsConexion();
             conexion.Abrir();
 
-            string consulta = "SELECT IdUsuario, IdRol FROM Usuario WHERE Usuario = ? AND Contraseña = ?";
+            string consulta = "SELECT IdUsuario, IdRol, Usuario FROM Usuario WHERE Usuario = ? AND Contraseña = ?";
             OleDbCommand cmd = new OleDbCommand(consulta, conexion.Conexion);
             cmd.Parameters.AddWithValue("?", usuario);
             cmd.Parameters.AddWithValue("?", contraseña);
@@ -54,20 +61,17 @@ namespace pryRecio_Lab3IEFI
             {
                 idUsuario = Convert.ToInt32(reader["IdUsuario"]);
                 int idRol = Convert.ToInt32(reader["IdRol"]);
+                string nombreUsuario = reader["Usuario"].ToString();
 
-                // Guardar hora de inicio
                 horaInicio = DateTime.Now;
 
                 if (idRol == 1)
                 {
-                    // Administrador
                     FrmMenuAdmin admin = new FrmMenuAdmin();
                     admin.Show();
                 }
                 else if (idRol == 2)
                 {
-                    // Operador
-                    string nombreUsuario = reader["Usuario"].ToString();
                     FrmMenuOperador operador = new FrmMenuOperador(idUsuario, horaInicio, nombreUsuario);
                     operador.Show();
                 }
@@ -78,13 +82,11 @@ namespace pryRecio_Lab3IEFI
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
             }
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contraseña))
-            {
-                MessageBox.Show("Debe completar todos los campos.");
-                return;
-            }
+
+
 
             conexion.Cerrar();
         }
+
     }
 }
